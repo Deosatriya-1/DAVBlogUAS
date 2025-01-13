@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     alert("Harap melakukan Log In terlebih dahulu!");
     window.location.href = "login/login.html";
   }
+
   if (!token && window.location.pathname.includes("/karya/karya.html")) {
     alert("Harap melakukan Log In terlebih dahulu!");
     window.location.href = "../login/login.html";
