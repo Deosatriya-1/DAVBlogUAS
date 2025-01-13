@@ -99,3 +99,13 @@ input:hover {
     font-size: 9px;
   }
 }
+
+@media only screen and (max-width: 416px) {
+  .tittle h1 {
+    font-size: 24px !important;
+  }
+  .have-account p,
+  .have-account a {
+    font-size: 8px;
+  }
+}
