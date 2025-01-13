@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const token = getToken();
 
   if (!token && window.location.pathname.includes("index.html")) {
-    alert("Please log in first!");
+    alert("Harap melakukan Log In terlebih dahulu!");
     window.location.href = "login/login.html";
   }
 
@@ -48,7 +48,7 @@ if (loginForm) {
       }
     } catch (error) {
       console.error("Error during login:", error);
-      alert("An error occurred during login. Please try again.");
+      alert("Kesalahan saat login. Coba lagi nanti.");
     }
   });
 }
@@ -69,7 +69,7 @@ if (registerForm) {
     }
 
     if (password !== conPassword) {
-      alert("Password Anda tidak pass!");
+      alert("Password Anda tidak sama!");
       return;
     }
 
@@ -104,7 +104,7 @@ const logoutButton = document.getElementById("logout-btn");
 if (logoutButton) {
   logoutButton.addEventListener("click", () => {
     localStorage.removeItem("token");
-    alert("Logged out successfully!");
+    alert("Berhasil Log Out!");
     window.location.href = "../login/login.html";
   });
 }
@@ -114,7 +114,7 @@ async function getBlogs() {
   const token = localStorage.getItem("token");
 
   if (!token) {
-    alert("Unauthorized! Please log in.");
+    alert("Tidak terautorisasi! Harap Log In!");
     window.location.href = "../login/login.html";
     return;
   }
@@ -282,7 +282,7 @@ async function deleteBlog(id) {
   const token = localStorage.getItem("token"); // Ambil token dari localStorage
 
   if (!token) {
-    alert("Unauthorized! Please log in.");
+    alert("Tidak terautorisasi! Harap Log In.");
     window.location.href = "../login/login.html";
     return;
   }
@@ -298,13 +298,13 @@ async function deleteBlog(id) {
     const data = await response.json();
 
     if (response.ok) {
-      alert("Blog deleted successfully!");
+      alert("Blog berhasil dihapus!");
       getBlogs(); // Panggil ulang fungsi untuk memperbarui daftar blog
     } else {
-      alert(data.message || "Failed to delete blog");
+      alert(data.message || "Gagal menghapus blog.");
     }
   } catch (error) {
     console.error("Error deleting blog:", error);
-    alert("Error deleting blog. Please try again.");
+    alert("Error saat menghapus blog. Coba lagi nanti.");
   }
 }
